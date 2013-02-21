@@ -93,28 +93,44 @@ describe("About Applying What We Have Learnt", function() {
     expect(ingredientCount['mushrooms']).toBe(2);
   });
 
+  it("should find the largest prime factor of a composite number", function () {
+      /* naive algorithm */
+      function find_divisors(number) {
+          return _.range(Math.ceil(number / 2), 1, -1).filter(function(x) { return number % x === 0 });
+      }
+
+      function is_prime(number) {
+          return find_divisors(number).length === 0;
+      }
+
+      function compute_largest_prime_factor(number) {
+          return _(find_divisors(number)).filter(is_prime)[0];
+      }
+
+      expect(compute_largest_prime_factor(14)).toBe(7);
+      expect(compute_largest_prime_factor(3)).toBe(undefined);
+
+  });
+
   /*********************************************************************************/
   /* UNCOMMENT FOR EXTRA CREDIT */
   /*
-  it("should find the largest prime factor of a composite number", function () {
-  
-  });
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
-    
+
   });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
-      
-    
+
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
-    
+
   });
 
   it("should find the 10001st prime", function () {
 
   });
-  */
+
+  **********************************************************************************/
 });
