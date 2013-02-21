@@ -133,13 +133,15 @@ describe("About Applying What We Have Learnt", function() {
       expect(palindrome).toBe(906609);
   });
 
+  it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
+      var result = _.range(1, 21).reduce(function (memo, x) { return memo * x });
+
+      expect(result).toBe(2432902008176640000);
+  });
+
   /*********************************************************************************/
   /* UNCOMMENT FOR EXTRA CREDIT */
   /*
-
-  it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
-
-  });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
 
