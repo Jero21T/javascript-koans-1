@@ -139,17 +139,37 @@ describe("About Applying What We Have Learnt", function() {
       expect(result).toBe(2432902008176640000);
   });
 
-  /*********************************************************************************/
-  /* UNCOMMENT FOR EXTRA CREDIT */
-  /*
-
   it("should find the difference between the sum of the squares and the square of the sums", function () {
-
+      function diff_sums_squares(x, y) {
+          return ((x + y) * (x + y)) - (x * x + y * y);
+      }
+      expect(diff_sums_squares(5, 10)).toBe(100);
   });
 
   it("should find the 10001st prime", function () {
+      function is_prime(x) {
+          /* consider divisors up to the square root of x */
+          for (var i = 2; i <= Math.floor(Math.sqrt(x)); i++) {
+              if (x % i === 0) {
+                  return false;
+              }
+          }
+          return true;
+      }
+      function find_nth_prime(index) {
+          var cur_index = 0;
+          var cur_num = 2;
+          while (true) {
+              if (is_prime(cur_num)) {
+                  cur_index++;
+                  if (cur_index === index) {
+                      return cur_num;
+                  }
+              }
+              cur_num++;
+          }
+      }
 
+      expect(find_nth_prime(10001)).toBe(104743);
   });
-
-  **********************************************************************************/
 });
