@@ -112,13 +112,30 @@ describe("About Applying What We Have Learnt", function() {
 
   });
 
+  it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
+      var palindrome = 0;
+      function is_palindrome(x) {
+          str_num = "" + x;
+          reversed = str_num.split("").reverse().join("");
+          return str_num === reversed;
+      }
+      for (var i=999; i > 99; i--) {
+          for (var j=999; j > 99; j--) {
+              var num = i * j;
+              if (num < palindrome) {
+                  break;
+              }
+              if (is_palindrome(num)) {
+                  palindrome = num;
+              }
+          }
+      }
+      expect(palindrome).toBe(906609);
+  });
+
   /*********************************************************************************/
   /* UNCOMMENT FOR EXTRA CREDIT */
   /*
-
-  it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
-
-  });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
 
